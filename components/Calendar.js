@@ -36,7 +36,13 @@ const dayList = [
 ];
 
 export default function Calendar(props) {
-  const { demo, completeData, handleSetMood } = props;
+  const {
+    demo,
+    completeData,
+    handleSetMood,
+    showEditIcon = true,
+    clickable = true,
+  } = props;
 
   const router = useRouter();
 
@@ -164,16 +170,19 @@ export default function Calendar(props) {
                     style={{
                       background: color,
                       cursor:
-                        isToday || dayIndex in data ? "pointer" : "default",
+                        clickable && (isToday || dayIndex in data)
+                          ? "pointer"
+                          : "default",
                     }}
                     key={dayOfWeekIndex}
                     className={
-                      " text-xs sm:text-sm border border-solid p-2 flex items-center gap-2 justify-between rounded-lg " +
+                      " text-xs sm:text-sm border border-solid p-1 sm:p-2 flex items-center gap-2 justify-between rounded-lg " +
                       (isToday ? " border-green-400 " : " border-green-200 ") +
                       (color === "white" ? " text-green-400" : " text-white") +
                       (isToday ? " font-bold" : "")
                     }
                     onClick={() => {
+                      if (!clickable) return;
                       if (isToday || dayIndex in data) {
                         router.push(
                           `/dashboard/journal?date=${selectedYear}-${String(
@@ -187,9 +196,10 @@ export default function Calendar(props) {
                     }}
                   >
                     <span>{dayIndex}</span>
-                    {(isToday || dayIndex in data) && (
+
+                    {showEditIcon && (isToday || dayIndex in data) && (
                       <i
-                        className="fa-solid fa-pen-to-square ml-1 text-white"
+                        className="fa-solid fa-pen-to-square text-white "
                         title="Edit"
                       ></i>
                     )}

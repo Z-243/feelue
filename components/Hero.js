@@ -27,7 +27,7 @@ export default function Hero() {
         <span className="font-semibold "> back on every day.</span>
       </p>
       <CallToAction />
-      <Calendar demo />
+      <Calendar demo showEditIcon={false} clickable={false} />
     </div>
   );
 }

@@ -89,7 +89,7 @@ export default function JournalPage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 p-4 max-w-3xl mx-auto">
+    <div className="flex flex-col gap-6 px-1 w-full mx-auto">
       <h2
         className={`${lobster.className} text-4xl sm:text-5xl md:text-6xl text-center textGradient p-2`}
       >
