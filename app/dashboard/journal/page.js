@@ -1,8 +1,8 @@
 // app/dashboard/journal/page.js
 
 import { Suspense } from "react";
-import Main from "@/components/Main"; // Adjust path as needed
-import Journal from "@/components/Journal"; // Replace with your actual component
+import Main from "@/components/Main"; 
+import Journal from "@/components/Journal"; 
 
 export const metadata = {
   title: "Feelue • Journal",
